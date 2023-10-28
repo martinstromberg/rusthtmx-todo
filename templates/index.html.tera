@@ -12,7 +12,7 @@
                        checked="true"
                     {% endif %}
                        id="{{ item.id }}"
-                       name="isCompleted"
+                       name="completed"
                        type="checkbox" />
                 <label for="{{ item.id }}">{{ item.description }}</label>
                 &nbsp;|&nbsp;
@@ -28,7 +28,7 @@
             hx-post="/todos"
             hx-swap="beforebegin"
             hx-target="closest li">
-            <input type="text" name="title" />
+            <input type="text" name="description" />
             <input type="submit" value="Save" />
         </form>
     </li>

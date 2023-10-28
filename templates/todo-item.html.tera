@@ -7,7 +7,7 @@
                checked="true"
             {% endif %}
                id="{{ id }}"
-               name="isCompleted"
+               name="completed"
                type="checkbox" />
         <label for="{{ id }}">{{ description }}</label>
         &nbsp;|&nbsp;
