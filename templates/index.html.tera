@@ -2,6 +2,26 @@
 
 {% block content %}
 <ul>
+    {% for item in items %}
+        <li class="todo-item">
+            <form>
+                <input hx-put="/todos/{{ item.id }}"
+                       hx-swap="outerHTML"
+                       hx-target="closest .todo-item"
+                    {% if item.completed %}
+                       checked="true"
+                    {% endif %}
+                       id="{{ item.id }}"
+                       name="isCompleted"
+                       type="checkbox" />
+                <label for="{{ item.id }}">{{ item.description }}</label>
+                &nbsp;|&nbsp;
+                <button hx-delete="/todos/{{ item.id }}"
+                        hx-swap="delete"
+                        hx-target="closest .todo-item">Delete</button>
+            </form>
+        </li>
+    {% endfor %}
     <li>
         <form
             hx-on::after-request="this.reset()"

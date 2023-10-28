@@ -1,0 +1,19 @@
+<li class="todo-item">
+    <form>
+        <input hx-put="/todos/{{ id }}"
+               hx-swap="outerHTML"
+               hx-target="closest .todo-item"
+            {% if completed %}
+               checked="true"
+            {% endif %}
+               id="{{ id }}"
+               name="isCompleted"
+               type="checkbox" />
+        <label for="{{ id }}">{{ description }}</label>
+        &nbsp;|&nbsp;
+        <button hx-delete="/todos/{{ id }}"
+                hx-swap="delete"
+                hx-target="closest .todo-item">Delete</button>
+    </form>
+</li>
+
